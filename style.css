@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Lexend:wght@100..900&display=swap');
+
+:root {
+    --base-color: #1B3A57;
+    --text-color: #F1FAEE;
+    --primary-color: #9B1B30;
+    --secondary-color: #457B9D;
+    --soft-highlight-color: #A8DADC;
+    --deep-color: #7A1526;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Lexend, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 1em;
+    background-color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: Birthstone, Lexend, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+}
+
+h2, h3 {
+    font-family: Lexend, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    color: var(--soft-highlight-color);
+}
+
+a:visited {
+    color: var(--soft-highlight-color);
+}
+
+a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+/* ---------- Nav ---------- */
+nav {
+    margin: 1em auto 3em auto;
+    width: min(1000px, 100%);
+}
+nav ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 1em 2em;
+}
+nav li:first-child {
+    margin-right: auto;
+    font-family: Birthstone, Lexend;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Header og seksjoner ---------- */
+header, section {
+    margin: 2em auto;
+    width: min(75em, 100%);
+    background-color: var(--primary-color);
+    padding: 2em;
+    border-radius: 1em;
+}
+
+/* To kolonner: venstre fast innhold, høyre scrollbar tekst */
+.header-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5em;
+    align-items: stretch;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+}
+
+.header-left img {
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    border-radius: 1em;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.header-left p {
+    font-size: 1.15rem;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75em;
+}
+
+.header-right {
+    background-color: var(--deep-color);
+    border-radius: 1em;
+    padding: 1.5em;
+    max-height: 640px;       /* endre denne for å styre hvor høy scroll-boksen er */
+    overflow-y: auto;
+}
+.header-right h2 { margin-bottom: .5em; }
+.header-right h3 { margin: 1.25em 0 .25em; }
+.header-right p + p { margin-top: .75em; }
+
+.header-right:focus-visible,
+summary:focus-visible,
+.cta-button:focus-visible {
+    outline: 3px solid var(--soft-highlight-color);
+    outline-offset: 2px;
+}
+
+/* ---------- Knapper ---------- */
+.cta-button,
+.cta-button:visited,
+.cta-button:hover {
+    color: var(--base-color);
+    text-decoration: none;
+}
+
+.cta-button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--base-color);
+    background-color: var(--text-color);
+    padding: .75em 1em;
+    border-radius: .5em;
+    font-weight: 600;
+}
+.cta-button.secondary {
+    background-color: var(--soft-highlight-color);
+}
+
+.download-button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--soft-highlight-color);
+    background-color: none;
+    padding: .75em 1em;
+    border-radius: .5em;
+    font-weight: 600;
+}
+/* ---------- Details ---------- */
+summary {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Ytre details (Tech Projects / Tools): stor, lys "fane" */
+details.outer {
+    margin-top: 1em;
+}
+details.outer > summary {
+    background-color: var(--soft-highlight-color);
+    color: var(--base-color);
+    padding: .9em 1.1em;
+    border-radius: .6em;
+    font-size: 1.1rem;
+}
+details.outer[open] > summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Prosjektene ligger i en grid i stedet for rett under hverandre */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1em;
+    align-items: start;
+    padding: 1em;
+    background-color: var(--deep-color);
+    border-radius: 0 0 .6em .6em;
+}
+
+/* Indre details (ett prosjekt): mørkere kort med venstrekant */
+details.project {
+    background-color: var(--base-color);
+    border-left: 5px solid var(--soft-highlight-color);
+    border-radius: .6em;
+}
+details.project > summary {
+    padding: .8em 1em;
+    font-size: 1rem;
+}
+.project-body {
+    padding: 0 1em 1em;
+}
+.project-body img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: .5em;
+    margin-bottom: .75em;
+    background-color: var(--secondary-color); /* synlig plassholder hvis bildet mangler */
+}
+
+/* ---------- Verktøy-grid ---------- */
+.tools-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5em 1em;
+    padding: 1.5em 1em;
+    background-color: var(--deep-color);
+    border-radius: 0 0 .6em .6em;
+}
+.tools-grid li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6em;
+    text-align: center;
+    font-size: .9rem;
+}
+.tools-grid img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+/* ---------- Mobil ---------- */
+@media (max-width: 800px) {
+    .header-grid {
+        grid-template-columns: 1fr;
+    }
+    .header-right {
+        max-height: 400px;
+    }
+    h1 { font-size: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
